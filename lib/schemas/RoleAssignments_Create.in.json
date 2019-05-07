@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "scope": {
+            "required": true,
+            "type": "string"
+        },
+        "roleAssignmentName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Role assignment create parameters.",
+            "properties": {
+                "properties": {
+                    "description": "Role assignment properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "canDelegate": {
+                            "description": "The delgation flag used for creating a role assignment",
+                            "type": "boolean"
+                        },
+                        "principalId": {
+                            "description": "The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.",
+                            "type": "string"
+                        },
+                        "roleDefinitionId": {
+                            "description": "The role definition ID used in the role assignment.",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

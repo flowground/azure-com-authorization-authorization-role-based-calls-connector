@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceProviderNamespace": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "_expand": {
+            "required": false,
+            "type": "string",
+            "default": "resourceTypes"
+        }
+    }
+}

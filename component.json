@@ -1,0 +1,356 @@
+{
+    "title": "AuthorizationManagementClient",
+    "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/authorization-authorization-RoleBasedCalls/2018-01-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ProviderOperationsMetadata_List": {
+            "main": "./lib/actions/ProviderOperationsMetadata_List.js",
+            "title": "Gets provider operations metadata for all resource providers.",
+            "description": "Gets provider operations metadata for all resource providers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProviderOperationsMetadata_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ProviderOperationsMetadata_Get": {
+            "main": "./lib/actions/ProviderOperationsMetadata_Get.js",
+            "title": "Gets provider operations metadata for the specified resource provider.",
+            "description": "Gets provider operations metadata for the specified resource provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProviderOperationsMetadata_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_List": {
+            "main": "./lib/actions/RoleAssignments_List.js",
+            "title": "Gets all role assignments for the subscription.",
+            "description": "Gets all role assignments for the subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_ListForResourceGroup": {
+            "main": "./lib/actions/RoleAssignments_ListForResourceGroup.js",
+            "title": "Gets role assignments for a resource group.",
+            "description": "Gets role assignments for a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_ListForResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Permissions_ListForResourceGroup": {
+            "main": "./lib/actions/Permissions_ListForResourceGroup.js",
+            "title": "Gets all permissions the caller has for a resource group.",
+            "description": "Gets all permissions the caller has for a resource group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Permissions_ListForResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Permissions_ListForResource": {
+            "main": "./lib/actions/Permissions_ListForResource.js",
+            "title": "Gets all permissions the caller has for a resource.",
+            "description": "Gets all permissions the caller has for a resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Permissions_ListForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_ListForResource": {
+            "main": "./lib/actions/RoleAssignments_ListForResource.js",
+            "title": "Gets role assignments for a resource.",
+            "description": "Gets role assignments for a resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_ListForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_DeleteById": {
+            "main": "./lib/actions/RoleAssignments_DeleteById.js",
+            "title": "Deletes a role assignment.",
+            "description": "Deletes a role assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_DeleteById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_GetById": {
+            "main": "./lib/actions/RoleAssignments_GetById.js",
+            "title": "Gets a role assignment by ID.",
+            "description": "Gets a role assignment by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_GetById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_CreateById": {
+            "main": "./lib/actions/RoleAssignments_CreateById.js",
+            "title": "Creates a role assignment by ID.",
+            "description": "Creates a role assignment by ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_CreateById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_ListForScope": {
+            "main": "./lib/actions/RoleAssignments_ListForScope.js",
+            "title": "Gets role assignments for a scope.",
+            "description": "Gets role assignments for a scope.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_ListForScope.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_Delete": {
+            "main": "./lib/actions/RoleAssignments_Delete.js",
+            "title": "Deletes a role assignment.",
+            "description": "Deletes a role assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_Get": {
+            "main": "./lib/actions/RoleAssignments_Get.js",
+            "title": "Get the specified role assignment.",
+            "description": "Get the specified role assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleAssignments_Create": {
+            "main": "./lib/actions/RoleAssignments_Create.js",
+            "title": "Creates a role assignment.",
+            "description": "Creates a role assignment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleAssignments_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleDefinitions_List": {
+            "main": "./lib/actions/RoleDefinitions_List.js",
+            "title": "Get all role definitions that are applicable at scope and above.",
+            "description": "Get all role definitions that are applicable at scope and above.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleDefinitions_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleDefinitions_Delete": {
+            "main": "./lib/actions/RoleDefinitions_Delete.js",
+            "title": "Deletes a role definition.",
+            "description": "Deletes a role definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleDefinitions_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleDefinitions_Get": {
+            "main": "./lib/actions/RoleDefinitions_Get.js",
+            "title": "Get role definition by name (GUID).",
+            "description": "Get role definition by name (GUID).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleDefinitions_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RoleDefinitions_CreateOrUpdate": {
+            "main": "./lib/actions/RoleDefinitions_CreateOrUpdate.js",
+            "title": "Creates or updates a role definition.",
+            "description": "Creates or updates a role definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RoleDefinitions_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

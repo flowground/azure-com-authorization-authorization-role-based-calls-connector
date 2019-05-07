@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "_expand": {
+            "required": false,
+            "type": "string",
+            "default": "resourceTypes"
+        }
+    }
+}

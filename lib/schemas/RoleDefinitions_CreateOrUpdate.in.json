@@ -1,0 +1,102 @@
+{
+    "type": "object",
+    "properties": {
+        "scope": {
+            "required": true,
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Role definition.",
+            "properties": {
+                "id": {
+                    "description": "The role definition ID.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The role definition name.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "Role definition properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "assignableScopes": {
+                            "description": "Role definition assignable scopes.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "description": {
+                            "description": "The role definition description.",
+                            "type": "string"
+                        },
+                        "permissions": {
+                            "description": "Role definition permissions.",
+                            "items": {
+                                "description": "Role definition permissions.",
+                                "properties": {
+                                    "actions": {
+                                        "description": "Allowed actions.",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "dataActions": {
+                                        "description": "Allowed Data actions.",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "notActions": {
+                                        "description": "Denied actions.",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "notDataActions": {
+                                        "description": "Denied Data actions.",
+                                        "items": {
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "roleName": {
+                            "description": "The role name.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The role type.",
+                            "type": "string",
+                            "x-ms-client-name": "roleType"
+                        }
+                    }
+                },
+                "type": {
+                    "description": "The role definition type.",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
